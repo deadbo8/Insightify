@@ -1,12 +1,13 @@
+# Import necessory Libraries
 import pandas as pd 
 import numpy as np 
 import matplotlib.pyplot as plt
 import seaborn as sns
 import tqdm
 import requests
-import pandas as pd
 import os
 import time
+import nltk
 
 from flask import Flask
 from flask import render_template, request, redirect, url_for
@@ -18,7 +19,7 @@ from tqdm.notebook import tqdm
 
 plt.style.use('ggplot')
 
-import nltk
+
 
 # Download if required 
 '''nltk.download('punkt')
@@ -37,7 +38,7 @@ def get_soup(url):
     soup = BeautifulSoup(r.text, 'html.parser')
     return soup
 
-def  process_url(User_url,page_number):
+def process_url(User_url,page_number):
     split_data = User_url.split("/")
     product_id = split_data[5]
     return 'https://www.amazon.in/product-reviews/'+product_id+'?reviewerType=all_reviews&pageNumber='+str(page_number)
@@ -55,14 +56,12 @@ def result():
     url = request.args.get('url')
 
     path_static=r'C:\Users\aksha\Desktop\amazon_projext\app\static\images'
-    path_temp=r'C:\Users\aksha\Desktop\amazon_projext\app\template'
 
     #make a list called review list
     reviewlist= []
     reviewlist.clear()
 
     product_name=""
-
     total_reviews=0
     total_positive=0
     average_rating=0.0
@@ -71,7 +70,7 @@ def result():
     CleanCache(directory=path_static)
  
 
-    for page_number in range(1,3):
+    for page_number in range(1,8):
         final_url=process_url(url,page_number)
         
         # getting soup of submitted url 
@@ -98,7 +97,7 @@ def result():
         else:
             break
             
-
+        # Prints the number of reviews fetched             
         print(index)
 
     # Creating a pandas Dataframe
