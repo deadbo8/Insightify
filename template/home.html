@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title style="background: linear-gradient(to bottom, #0000cc, #ffffff); 
+                background-size: 100% 100%; 
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                color:white;">Insightify</title>
+ 
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <style>
+      /* styles for website layout and design */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('/static/background.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      header {
+        background-color: #2C5D63;
+
+        padding: 20px;
+        padding-bottom: 1px;
+        text-align: center;
+        color: white;
+      }
+      h1 {
+        margin: 0;
+      }
+      main {
+        padding: 20px;
+        text-align: center;
+      }
+      form {
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        width: 300px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+      }
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+      .loader {
+        display: none;
+        top: 70%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+    }
+ 
+    .loading {
+        border: 5px solid #ccc;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border-top-color: #61f3c5;
+        border-left-color: #61f3c5;
+        animation: spin 1s infinite ease-in;
+    }
+      #results {
+        background-color: #f2f2f2;
+        padding: 20px;
+        text-align: left;
+        /* styles for displaying the analysis results */
+      }
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #e5eaed;
+            text-align: center;
+            left: 0;
+            padding: 5px;
+        }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+ 
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    </style>
+  </head>
+  <script type="text/javascript">
+    function spinner() {
+        document.getElementsByClassName("loader")[0].style.display = "block";
+    }
+ </script>
+ 
+  <body>
+    <header>
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="/static/logo1.png" alt="logo" style="height: 50px; width: auto; margin-right: 10px;">
+        <h1 style="margin: 0; font-size: 3em; font-weight: bold; text-align: center;font-family: Lato">Insightify</h1>
+      </div>      
+      <div style=" align-items: center; justify-content: center;">
+        <p style="margin-top: 13px; font-size: 1.3em; text-align: center;font-family: Lato">Unlocking buyer sentiment for smarter purchasing decisions</p>
+      </div>
+    </header>
+ 
+ 
+    <main>
+      <br>
+ 
+      <div>
+        <form action="results">
+            <div class="form-group">
+                <h4 style="text-align: center;padding-top: 20px;padding-bottom: 5px;color:#04293A;font-size:20px">
+                    <i>Enter Amazon Product URL:</i></h4>
+ 
+ 
+                    <input type="url" class="form-control" name='url' id="url" style='padding: 10px; font-size: 16px; width: 600px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 20px;' placeholder='Please enter a valid url'>
+ 
+ 
+                        <button style="margin-left:10px; padding: 10px 20px;background-color:#85a6b1;color:white;border:none;border-radius:6px;cursor: pointer; font-size: 16px;"  onmouseover="this.style.color='#113f67';" onmouseout="this.style.color='#f5f9ee';" type="submit" class="btn btn-primary" onclick="spinner()">Search</button>
+                        <div class="loader">
+                            <div class="loading"></div>
+                        </div>
+ 
+            </div>
+ 
+        </form>
+ 
+    </div>
+    <!-- <div id="results"></div>  -->  
+    </main>
+    <div id="footer">
+        <div style="padding-top:10px">
+        <a style="text-decoration: none;color:#113f67;"  onmouseover="this.style.color='#f5f9ee';" onmouseout="this.style.color='#113f67';" href="https://github.com/deadbo8/Insightify" target="_blank"><i class="fa fa-github"></i> Check us out on GitHub</a>
+        </div>
+        <p >Copyright © 2023</p>
+    </div>
+ 
+   </body>
+</html>

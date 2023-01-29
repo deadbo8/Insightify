@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amazon Product Review Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      header {
+        background-color: #2C5D63;
+
+        padding: 20px;
+        padding-bottom: 1px;
+        text-align: center;
+        color: white;
+      }
+      h1 {
+        margin: 0;
+      }
+      main {
+        padding: 20px;
+        text-align: center;
+      }
+      .product-info {
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+      .product-info img {
+        max-width: 100%;
+      }
+      .product-info h2 {
+        margin-top: 0;
+      }
+ 
+        #footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #c2cfd8;
+            text-align: center;
+            left: 0;
+            padding: 5px;
+        }
+      table {
+  border-collapse: collapse;
+  width: 100%;
+ 
+}
+.table_heading {
+background-color:#73b1c1;
+padding:15px;
+}
+.table_values {
+ padding:15px;
+ font-family: Lato;
+ font-size: 24px;
+}
+ 
+ 
+ 
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="/static/logo1.png" alt="logo" style="height: 50px; width: auto; margin-right: 10px;">
+        <h1 style="margin: 0; font-size: 3em; font-weight: bold; text-align: center;font-family: Lato">Insightify</h1>
+      </div>      
+      <div style=" align-items: center; justify-content: center;">
+        <p style="margin-top: 13px; font-size: 1.3em; text-align: center;font-family: Lato">Unlocking buyer sentiment for smarter purchasing decisions</p>
+      </div>
+    </header>
+    <main>
+ 
+      <div class="product-info">
+      <h3 style="color:#04293A;font-size:20px">Amazon Product Review Sentiment Analysis<h3>
+        <h2 style="text-align: center;padding-top: 1px;padding-bottom: 5px;color:#04293A;font-size:17px">Searched Product: <span style="color:#506f86">{{product_name}}</span></h2>
+ 
+      </div>
+      <div>
+ 
+      <table>
+      	  <tr>
+          <th class="table_heading">Total Reviews</th>
+          <th class="table_heading">Positive Reviews</th>
+          <th class="table_heading">Average Rating</th>
+          </tr>
+          <tr>
+          <td class="table_values">{{total_reviews}}</td>
+          <td class="table_values">{{total_positive}}</td>
+          <td class="table_values">{{average_rating}}</td>
+          </tr>
+      </table>
+      <br>
+      <hr>
+ 
+ 
+      <table>
+      <tr>
+      <img src="/static/images/Sentiments distribution in realtion to star ratings.png" alt="Small Image 1">
+      </tr>
+      <br>
+      <br>
+      <tr>
+      <td><img src="/static/images/sentiments by review count.png" alt="Image 1" style="width:98%; height:auto;"> </td>
+      <td><img src="/static/images/count_of_reviews_star_rating.png" alt="Image 2" style="width:98%; height:auto;"> </td>
+      </tr>
+      </table>
+      <br><br><br>
+ 
+              <button style="margin-left:10px; padding: 10px 20px;background-color:#85a6b1;color:white;border:none;border-radius:6px;cursor: pointer; font-size: 16px;" onclick="window.location.replace('http://127.0.0.1:5000/')" onmouseover="this.style.color='#113f67';" onmouseout="this.style.color='#f5f9ee';">Check Another Product</button><br><br><br><br><br>
+    </main>
+ 
+    <div id="footer">
+        <div style="padding-top:10px">
+        <a style="text-decoration: none;color:#113f67;"  onmouseover="this.style.color='#f5f9ee';" onmouseout="this.style.color='#113f67';" href="https://github.com/deadbo8/Insightify" target="_blank"><i class="fa fa-github"></i> Check us out on GitHub</a>
+        </div>
+        <p>Copyright © 2023</p>
+    </div>
+  </body>
+</html>
